@@ -28,15 +28,15 @@ public class SpringStateMachineApplication implements CommandLineRunner {
 
         // since version 3.x need to send events reactively
         stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(ArticleEvents.EDIT_ARTICLE)
-            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1)
+            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1L)
             .build())).doOnComplete(() -> System.out.println("Initial Edit Article handling complete")).subscribe();
 
         stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(ArticleEvents.REVIEW_ARTICLE)
-            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1)
+            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1L)
             .build())).doOnComplete(() -> System.out.println("Review Article handling complete")).subscribe();
 
         stateMachine.sendEvent(Mono.just(MessageBuilder.withPayload(ArticleEvents.PUBLISH_ARTICLE)
-            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1)
+            .setHeader(ArticleServiceImpl.ARTICLE_ID_HEADER, 1L)
             .build())).doOnComplete(() -> System.out.println("Publish Article handling complete")).subscribe();
    */
     }
